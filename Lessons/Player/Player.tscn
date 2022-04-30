@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Textures/player_sheet.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/Shoot.ogg" type="AudioStream" id=3]
+
+[node name="Player" type="Area2D" groups=[
+"friend",
+]]
+script = ExtResource( 1 )
+
+[node name="FiringPositions" type="Node2D" parent="."]
+
+[node name="Left" type="Node2D" parent="FiringPositions"]
+position = Vector2( -46, -8 )
+
+[node name="Right" type="Node2D" parent="FiringPositions"]
+position = Vector2( 45, -8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 3
+frame = 1
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -10.525, -38.5381, 6.93664, -38.5381, 10.9481, -14.2333, 34.073, -1.01905, 39.0284, -3.14277, 42.5679, -8.80602, 48.4671, -9.27795, 46.3434, 22.5778, 41.1521, 23.0498, 39.5003, 19.7462, 13.0718, 26.1174, 7.17261, 35.7921, -7.69342, 35.5561, -15.9523, 25.1735, -42.8528, 20.6901, -45.6844, 23.9936, -49.4599, 13.375, -49.6959, -8.57005, -43.5607, -7.15423, -42.1449, -3.6147, -38.1334, -1.01905, -14.5365, -13.9973 )
+
+[node name="ShieldTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]

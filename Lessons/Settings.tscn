@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Settings.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Soundtrack.ogg" type="AudioStream" id=3]
+
+[node name="Settings" type="Control"]
+anchor_left = 0.00235962
+anchor_right = 1.00236
+anchor_bottom = 1.0
+margin_left = -0.943848
+margin_top = -1.68182
+margin_right = -0.943848
+margin_bottom = -1.68182
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit To Menu Button" type="Button" parent="."]
+margin_left = 129.0
+margin_top = 499.0
+margin_right = 281.0
+margin_bottom = 556.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 139.424
+margin_top = 79.7296
+margin_right = 324.424
+margin_bottom = 127.73
+min_value = -50.0
+max_value = 0.0
+step = 5.0
+allow_greater = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slider Label" type="Label" parent="."]
+margin_left = 336.019
+margin_top = 98.1629
+margin_right = 376.019
+margin_bottom = 112.163
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+[connection signal="pressed" from="Exit To Menu Button" to="." method="_on_Exit_To_Menu_Button_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

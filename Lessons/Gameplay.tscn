@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MeteorSpawner/MeteorSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/background.png" type="Texture" id=3]
+[ext_resource path="res://StarFall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Soundtrack.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Gameplay.gd" type="Script" id=6]
+
+[node name="Gameplay " type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 221.766, 293.359 )
+texture = ExtResource( 3 )
+
+[node name="CPUParticles2D" parent="background" instance=ExtResource( 4 )]
+pause_mode = 2
+position = Vector2( -0.327759, -369.296 )
+
+[node name="MeteorSpawner" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 450 )
+
+[node name="Soundtrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 131.18
+margin_top = 191.724
+margin_right = 284.18
+margin_bottom = 223.724
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 400.0
+margin_bottom = 601.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="Control"]
+margin_left = 68.996
+margin_top = 519.502
+margin_right = 107.996
+margin_bottom = 565.502
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+margin_left = 64.9603
+margin_top = 418.0
+margin_right = 105.96
+margin_bottom = 467.0
+rect_pivot_offset = Vector2( 169.203, 262.171 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Control"]
+margin_left = 113.766
+margin_top = 477.155
+margin_right = 147.766
+margin_bottom = 513.155
+rect_pivot_offset = Vector2( 169.203, 262.171 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Control"]
+margin_left = 26.0
+margin_top = 472.0
+margin_right = 64.0
+margin_bottom = 517.0
+rect_pivot_offset = Vector2( 169.203, 262.171 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="button_down" from="Control/Button1" to="." method="_on_Button1_button_down"]
+[connection signal="button_up" from="Control/Button1" to="." method="_on_Button1_button_up"]
+[connection signal="button_down" from="Control/Button2" to="." method="_on_Button2_button_down"]
+[connection signal="button_up" from="Control/Button2" to="." method="_on_Button2_button_up"]
+[connection signal="button_down" from="Control/Button3" to="." method="_on_Button3_button_down"]
+[connection signal="button_up" from="Control/Button3" to="." method="_on_Button3_button_up"]
+[connection signal="button_down" from="Control/Button4" to="." method="_on_Button4_button_down"]
+[connection signal="button_up" from="Control/Button4" to="." method="_on_Button4_button_up"]

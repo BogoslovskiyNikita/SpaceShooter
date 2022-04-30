@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Textures/life.png" type="Texture" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color( 0.780392, 0.0627451, 0.0627451, 1 )
+margin_left = 22.595
+margin_top = 13.0813
+margin_right = 92.595
+margin_bottom = 38.0813
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 199.404
+margin_top = 2.82843
+margin_right = 397.404
+margin_bottom = 42.8284
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="life" type="Sprite" parent="HBoxContainer"]
+position = Vector2( 80, 18 )
+texture = ExtResource( 2 )
+
+[node name="life2" type="Sprite" parent="HBoxContainer"]
+position = Vector2( 120, 18 )
+texture = ExtResource( 2 )
+
+[node name="life3" type="Sprite" parent="HBoxContainer"]
+position = Vector2( 160, 18 )
+texture = ExtResource( 2 )
